@@ -14,14 +14,28 @@
 		4ED948EE1837D9C100733A1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED948ED1837D9C100733A1C /* main.m */; };
 		4ED948F21837D9C100733A1C /* TappedInAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED948F11837D9C100733A1C /* TappedInAppDelegate.m */; };
 		4ED948F51837D9C100733A1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED948F31837D9C100733A1C /* Main.storyboard */; };
-		4ED948F81837D9C100733A1C /* TappedInFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED948F71837D9C100733A1C /* TappedInFirstViewController.m */; };
-		4ED948FB1837D9C100733A1C /* TappedInSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED948FA1837D9C100733A1C /* TappedInSecondViewController.m */; };
 		4ED948FD1837D9C100733A1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED948FC1837D9C100733A1C /* Images.xcassets */; };
 		4ED949041837D9C100733A1C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED949031837D9C100733A1C /* XCTest.framework */; };
 		4ED949051837D9C100733A1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED948E11837D9C100733A1C /* Foundation.framework */; };
 		4ED949061837D9C100733A1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED948E51837D9C100733A1C /* UIKit.framework */; };
 		4ED9490E1837D9C100733A1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9490C1837D9C100733A1C /* InfoPlist.strings */; };
 		4ED949101837D9C100733A1C /* TappedInTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9490F1837D9C100733A1C /* TappedInTests.m */; };
+		4ED9491C1837DE7B00733A1C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9491B1837DE7B00733A1C /* MainViewController.m */; };
+		4ED9491E1837DF1E00733A1C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED9491D1837DF1E00733A1C /* Parse.framework */; };
+		4ED949201837DF7D00733A1C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED9491F1837DF7D00733A1C /* CoreLocation.framework */; };
+		4ED949221837DF9000733A1C /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED949211837DF9000733A1C /* libz.1.1.3.dylib */; };
+		4ED949241837DF9E00733A1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED949231837DF9E00733A1C /* MobileCoreServices.framework */; };
+		4ED949261837DFA700733A1C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED949251837DFA700733A1C /* QuartzCore.framework */; };
+		4ED9492A1837E0AA00733A1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED949291837E0AA00733A1C /* AudioToolbox.framework */; };
+		4ED9492C1837E0B100733A1C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED9492B1837E0B100733A1C /* CFNetwork.framework */; };
+		4ED9492E1837E0C000733A1C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED9492D1837E0C000733A1C /* Security.framework */; };
+		4ED949301837E0C700733A1C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED9492F1837E0C700733A1C /* StoreKit.framework */; };
+		4ED949321837E0D400733A1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED949311837E0D400733A1C /* SystemConfiguration.framework */; };
+		4ED949351837E62500733A1C /* Beers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED949341837E62500733A1C /* Beers.m */; };
+		4ED949391837E64D00733A1C /* Venues.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED949381837E64D00733A1C /* Venues.m */; };
+		4ED9493C1837EA4300733A1C /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9493B1837EA4300733A1C /* InitialViewController.m */; };
+		4ED949421837F44900733A1C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED949411837F44900733A1C /* ListViewController.m */; };
+		4ED949451837F45A00733A1C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED949441837F45A00733A1C /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +60,35 @@
 		4ED948F01837D9C100733A1C /* TappedInAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TappedInAppDelegate.h; sourceTree = "<group>"; };
 		4ED948F11837D9C100733A1C /* TappedInAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TappedInAppDelegate.m; sourceTree = "<group>"; };
 		4ED948F41837D9C100733A1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4ED948F61837D9C100733A1C /* TappedInFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TappedInFirstViewController.h; sourceTree = "<group>"; };
-		4ED948F71837D9C100733A1C /* TappedInFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TappedInFirstViewController.m; sourceTree = "<group>"; };
-		4ED948F91837D9C100733A1C /* TappedInSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TappedInSecondViewController.h; sourceTree = "<group>"; };
-		4ED948FA1837D9C100733A1C /* TappedInSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TappedInSecondViewController.m; sourceTree = "<group>"; };
 		4ED948FC1837D9C100733A1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4ED949021837D9C100733A1C /* TappedInTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TappedInTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED949031837D9C100733A1C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4ED9490B1837D9C100733A1C /* TappedInTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TappedInTests-Info.plist"; sourceTree = "<group>"; };
 		4ED9490D1837D9C100733A1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4ED9490F1837D9C100733A1C /* TappedInTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TappedInTests.m; sourceTree = "<group>"; };
+		4ED9491A1837DE7B00733A1C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4ED9491B1837DE7B00733A1C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		4ED9491D1837DF1E00733A1C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4ED9491F1837DF7D00733A1C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4ED949211837DF9000733A1C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		4ED949231837DF9E00733A1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4ED949251837DFA700733A1C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4ED949271837E0A200733A1C /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		4ED949291837E0AA00733A1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4ED9492B1837E0B100733A1C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4ED9492D1837E0C000733A1C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4ED9492F1837E0C700733A1C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4ED949311837E0D400733A1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4ED949331837E62500733A1C /* Beers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beers.h; sourceTree = "<group>"; };
+		4ED949341837E62500733A1C /* Beers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beers.m; sourceTree = "<group>"; };
+		4ED949371837E64D00733A1C /* Venues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venues.h; sourceTree = "<group>"; };
+		4ED949381837E64D00733A1C /* Venues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venues.m; sourceTree = "<group>"; };
+		4ED9493A1837EA4300733A1C /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		4ED9493B1837EA4300733A1C /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		4ED949401837F44900733A1C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		4ED949411837F44900733A1C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		4ED949431837F45A00733A1C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4ED949441837F45A00733A1C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +96,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED949321837E0D400733A1C /* SystemConfiguration.framework in Frameworks */,
+				4ED949301837E0C700733A1C /* StoreKit.framework in Frameworks */,
+				4ED9492E1837E0C000733A1C /* Security.framework in Frameworks */,
+				4ED9492C1837E0B100733A1C /* CFNetwork.framework in Frameworks */,
+				4ED9492A1837E0AA00733A1C /* AudioToolbox.framework in Frameworks */,
+				4ED949261837DFA700733A1C /* QuartzCore.framework in Frameworks */,
+				4ED949241837DF9E00733A1C /* MobileCoreServices.framework in Frameworks */,
+				4ED949221837DF9000733A1C /* libz.1.1.3.dylib in Frameworks */,
+				4ED949201837DF7D00733A1C /* CoreLocation.framework in Frameworks */,
 				4ED948E41837D9C100733A1C /* CoreGraphics.framework in Frameworks */,
 				4ED948E61837D9C100733A1C /* UIKit.framework in Frameworks */,
+				4ED9491E1837DF1E00733A1C /* Parse.framework in Frameworks */,
 				4ED948E21837D9C100733A1C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +147,17 @@
 		4ED948E01837D9C100733A1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ED949311837E0D400733A1C /* SystemConfiguration.framework */,
+				4ED9492F1837E0C700733A1C /* StoreKit.framework */,
+				4ED9492D1837E0C000733A1C /* Security.framework */,
+				4ED9492B1837E0B100733A1C /* CFNetwork.framework */,
+				4ED949291837E0AA00733A1C /* AudioToolbox.framework */,
+				4ED949271837E0A200733A1C /* AudioUnit.framework */,
+				4ED949251837DFA700733A1C /* QuartzCore.framework */,
+				4ED949231837DF9E00733A1C /* MobileCoreServices.framework */,
+				4ED949211837DF9000733A1C /* libz.1.1.3.dylib */,
+				4ED9491F1837DF7D00733A1C /* CoreLocation.framework */,
+				4ED9491D1837DF1E00733A1C /* Parse.framework */,
 				4ED948E11837D9C100733A1C /* Foundation.framework */,
 				4ED948E31837D9C100733A1C /* CoreGraphics.framework */,
 				4ED948E51837D9C100733A1C /* UIKit.framework */,
@@ -115,13 +169,14 @@
 		4ED948E71837D9C100733A1C /* TappedIn */ = {
 			isa = PBXGroup;
 			children = (
+				4ED9493F1837F43400733A1C /* Map View */,
+				4ED9493E1837F41400733A1C /* List View */,
+				4ED9493D1837EA5100733A1C /* Initial View */,
+				4ED949361837E63000733A1C /* Data Objects */,
+				4ED949191837DD6C00733A1C /* Main View */,
 				4ED948F01837D9C100733A1C /* TappedInAppDelegate.h */,
 				4ED948F11837D9C100733A1C /* TappedInAppDelegate.m */,
 				4ED948F31837D9C100733A1C /* Main.storyboard */,
-				4ED948F61837D9C100733A1C /* TappedInFirstViewController.h */,
-				4ED948F71837D9C100733A1C /* TappedInFirstViewController.m */,
-				4ED948F91837D9C100733A1C /* TappedInSecondViewController.h */,
-				4ED948FA1837D9C100733A1C /* TappedInSecondViewController.m */,
 				4ED948FC1837D9C100733A1C /* Images.xcassets */,
 				4ED948E81837D9C100733A1C /* Supporting Files */,
 			);
@@ -155,6 +210,53 @@
 				4ED9490C1837D9C100733A1C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4ED949191837DD6C00733A1C /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				4ED9491A1837DE7B00733A1C /* MainViewController.h */,
+				4ED9491B1837DE7B00733A1C /* MainViewController.m */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		4ED949361837E63000733A1C /* Data Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4ED949331837E62500733A1C /* Beers.h */,
+				4ED949341837E62500733A1C /* Beers.m */,
+				4ED949371837E64D00733A1C /* Venues.h */,
+				4ED949381837E64D00733A1C /* Venues.m */,
+			);
+			name = "Data Objects";
+			sourceTree = "<group>";
+		};
+		4ED9493D1837EA5100733A1C /* Initial View */ = {
+			isa = PBXGroup;
+			children = (
+				4ED9493A1837EA4300733A1C /* InitialViewController.h */,
+				4ED9493B1837EA4300733A1C /* InitialViewController.m */,
+			);
+			name = "Initial View";
+			sourceTree = "<group>";
+		};
+		4ED9493E1837F41400733A1C /* List View */ = {
+			isa = PBXGroup;
+			children = (
+				4ED949401837F44900733A1C /* ListViewController.h */,
+				4ED949411837F44900733A1C /* ListViewController.m */,
+			);
+			name = "List View";
+			sourceTree = "<group>";
+		};
+		4ED9493F1837F43400733A1C /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				4ED949431837F45A00733A1C /* MapViewController.h */,
+				4ED949441837F45A00733A1C /* MapViewController.m */,
+			);
+			name = "Map View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,10 +357,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED948F81837D9C100733A1C /* TappedInFirstViewController.m in Sources */,
-				4ED948FB1837D9C100733A1C /* TappedInSecondViewController.m in Sources */,
 				4ED948EE1837D9C100733A1C /* main.m in Sources */,
+				4ED9491C1837DE7B00733A1C /* MainViewController.m in Sources */,
+				4ED949421837F44900733A1C /* ListViewController.m in Sources */,
+				4ED949451837F45A00733A1C /* MapViewController.m in Sources */,
+				4ED949391837E64D00733A1C /* Venues.m in Sources */,
+				4ED9493C1837EA4300733A1C /* InitialViewController.m in Sources */,
 				4ED948F21837D9C100733A1C /* TappedInAppDelegate.m in Sources */,
+				4ED949351837E62500733A1C /* Beers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +491,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/AChordia/XCodeProjects/TappedIn,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TappedIn/TappedIn-Prefix.pch";
 				INFOPLIST_FILE = "TappedIn/TappedIn-Info.plist";
@@ -398,6 +508,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/AChordia/XCodeProjects/TappedIn,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TappedIn/TappedIn-Prefix.pch";
 				INFOPLIST_FILE = "TappedIn/TappedIn-Info.plist";
