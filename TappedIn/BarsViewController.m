@@ -65,7 +65,7 @@
     [locationManager setDelegate:self];
     [locationManager startUpdatingLocation];
     [locationManager setDesiredAccuracy:10.0];
-    userLocation = locationManager.location;
+    userLocation = [[CLLocation alloc] initWithLatitude:41.888305 longitude:-87.633891];
     listViewController.userLocation = userLocation;
     mapViewController.userLocation = userLocation;
 }
@@ -87,7 +87,11 @@
 -(void)loadData
 {
     [self loadBeers];
-    [self loadBars];
+    if (bars) {
+        listViewController.bars = bars;
+        mapViewController.bars = bars;
+    } else
+        [self loadBars];
 }
 
 -(void)loadBeers
@@ -156,15 +160,15 @@
 }
 
 #pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0)
-{
-    userLocation = newLocation;
-    listViewController.userLocation = userLocation;
-    mapViewController.userLocation = userLocation;
-}
+//
+//- (void)locationManager:(CLLocationManager *)manager
+//	didUpdateToLocation:(CLLocation *)newLocation
+//		   fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0)
+//{
+//    userLocation = newLocation;
+//    listViewController.userLocation = userLocation;
+//    mapViewController.userLocation = userLocation;
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -175,5 +179,9 @@
     
 }
 
+-(void)setBars:(NSMutableArray *)bars
+{
+    self->bars = bars;
+}
 
 @end

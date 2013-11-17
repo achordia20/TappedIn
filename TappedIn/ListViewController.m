@@ -33,9 +33,15 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    _userLocation = [[CLLocation alloc] initWithLatitude:41.888305 longitude:-87.633891];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupTableView];
 }
 
@@ -92,6 +98,7 @@
     NSNumber *lat = obj[@"latitude"];
     NSNumber *lon = obj[@"longitude"];
     CLLocation *venLoc = [[CLLocation alloc] initWithLatitude:[lat doubleValue] longitude:[lon doubleValue]];
+    _userLocation = [[CLLocation alloc] initWithLatitude:41.888305 longitude:-87.633891];
     CLLocationDistance dist = [_userLocation distanceFromLocation:venLoc];
     dist = [self convertToMilesFromMeters:dist];
     distance.text = [NSString stringWithFormat:@"%.2f mi", dist];
@@ -106,21 +113,30 @@
 -(UITableViewCell *)setupBarCell
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_type];
+    
+    UILabel *topBar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    [topBar setBackgroundColor:[UIColor lightGrayColor]];
+    [cell.contentView addSubview:topBar];
+    
     UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 240, 20)];
+    [name setTextColor:[UIColor orangeColor]];
     name.tag = VENUE_NAME;
     [cell.contentView addSubview:name];
     
     UILabel *type = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 120, 20)];
     [type setFont:[UIFont systemFontOfSize:12]];
+    [type setTextColor:[UIColor lightGrayColor]];
     type.tag = VENUE_TYPE;
     [cell.contentView addSubview:type];
     
     UILabel *distance = [[UILabel alloc] initWithFrame:CGRectMake(130, 40, 60, 20)];
     [distance setFont:[UIFont systemFontOfSize:12]];
+    [distance setTextColor:[UIColor lightGrayColor]];
     distance.tag = VENUE_DISTANCE;
     [cell.contentView addSubview:distance];
     
-    UILabel *onTap = [[UILabel alloc] initWithFrame:CGRectMake(250, 20, 60, 20)];
+    UILabel *onTap = [[UILabel alloc] initWithFrame:CGRectMake(280, 30, 40, 20)];
+    [onTap setFont:[UIFont systemFontOfSize:25]];
     onTap.tag = VENUE_BEERS_ON_TAP;
     [cell.contentView addSubview:onTap];
     

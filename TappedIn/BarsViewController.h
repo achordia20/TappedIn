@@ -17,4 +17,6 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSString *type;
 
+
+-(void)setBars: (NSMutableArray *)bars;
 @end

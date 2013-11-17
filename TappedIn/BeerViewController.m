@@ -72,7 +72,7 @@
     [locationManager setDelegate:self];
     [locationManager startUpdatingLocation];
     [locationManager setDesiredAccuracy:10.0];
-    userLocation = locationManager.location;
+    userLocation = [[CLLocation alloc] initWithLatitude:41.888305 longitude:-87.633891];
 }
 
 -(void)setupSearchBar
@@ -106,6 +106,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             bars = [objects mutableCopy];
+            [_tableView reloadData];
         } else
             NSLog(@"ERROR: %@", error.description);
     }];
@@ -135,13 +136,13 @@
 }
 
 #pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0)
-{
-    userLocation = newLocation;
-}
+//
+//- (void)locationManager:(CLLocationManager *)manager
+//	didUpdateToLocation:(CLLocation *)newLocation
+//		   fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0)
+//{
+//    userLocation = newLocation;
+//}
 
 
 #pragma mark - UITableViewDelegate
@@ -153,10 +154,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *beerBars = [[beers objectAtIndex:indexPath.row] objectForKey:@"bars"];
     
-//    if ([_type isEqualToString:@"Bars"]) {
-//        [[[self parentViewController] parentViewController] performSegueWithIdentifier:@"goToVenue" sender:[_bars objectAtIndex:indexPath.row]];
-//    }
+    NSMutableArray *listOfBars = [[NSMutableArray alloc] init];
+    for (NSString *b in beerBars) {
+        for (PFObject *obj in bars) {
+            if ([b isEqualToString:obj[@"name"]])
+                [listOfBars addObject:obj];
+        }
+    }
+    
+    [self performSegueWithIdentifier:@"goToBars" sender:listOfBars];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BarsViewController *bC = (BarsViewController *)segue.destinationViewController;
+    [bC setBars:(NSMutableArray *)sender];
 }
 
 #pragma mark - UITableViewDataSource
@@ -188,11 +202,13 @@
 
 -(NSString *)getNearestBarFromList: (NSArray *)barsForBeers
 {
+    NSLog(@"COUNT OF BARS: %d", [barsForBeers count]);
     if ([barsForBeers count] == 0)
         return @"NA";
     
     NSMutableArray *list = [[NSMutableArray alloc] init];
     for (NSString *b in barsForBeers) {
+        NSLog(@"SIZE OF BARS: %d",[bars count]);
         for (PFObject *ba in bars) {
             if ([b isEqualToString:ba[@"name"]])
                 [list addObject:ba];
@@ -204,7 +220,11 @@
 
 -(NSString *)calculateNearestBarFromList: (NSArray *)list
 {
+    userLocation = [[CLLocation alloc] initWithLatitude:41.888305 longitude:-87.633891];
     CLLocationDistance min = DBL_MAX;
+    if ([list count] <= 0)
+        NSLog(@"FFDFS");
+    
     for (PFObject *o in list) {
         NSNumber *lat = o[@"latitude"];
         NSNumber *lon = o[@"longitude"];

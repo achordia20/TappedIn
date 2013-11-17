@@ -16,10 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AEu-gw-1Ly">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WY3-Tp-t8w">
                                 <rect key="frame" x="30" y="165" width="264" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Bars">
+                                <fontDescription key="fontDescription" type="system" pointSize="71"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -30,7 +35,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFU-3d-vwf">
                                 <rect key="frame" x="30" y="381" width="264" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Beers">
+                                <fontDescription key="fontDescription" type="system" pointSize="71"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -39,7 +45,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="2Pc-lg-2Et"/>
                 </viewController>
@@ -76,7 +82,7 @@
                     <connections>
                         <outlet property="searchbar" destination="gfY-I5-jO0" id="RLX-5z-umh"/>
                         <outlet property="tableView" destination="lxT-UR-IW8" id="BOO-xX-MoP"/>
-                        <segue destination="oK4-Cn-S1C" kind="push" id="4SB-M7-V5P"/>
+                        <segue destination="oK4-Cn-S1C" kind="push" identifier="goToBars" id="4SB-M7-V5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b77-KF-n9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,7 +148,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" id="0L0-yp-xn6"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list.png" id="0L0-yp-xn6"/>
                     <connections>
                         <outlet property="tableView" destination="jk1-g8-z5Y" id="TrE-h9-7En"/>
                     </connections>
@@ -189,7 +195,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="5kP-Ip-HAX"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map.png" id="5kP-Ip-HAX"/>
                     <connections>
                         <outlet property="mapView" destination="GR5-AH-Gja" id="0q6-fP-a38"/>
                     </connections>
@@ -259,6 +265,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4d-sE-qpK">
                                 <rect key="frame" x="0.0" y="65" width="320" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMb-gD-p2M">
+                                        <rect key="frame" x="36" y="36" width="248" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -278,6 +292,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="B5B-8u-nVu"/>
                     <connections>
+                        <outlet property="addressLbl" destination="DMb-gD-p2M" id="dZN-b1-uky"/>
                         <outlet property="tableView" destination="Vei-QF-tjj" id="NaX-UM-xWz"/>
                     </connections>
                 </viewController>
@@ -304,12 +319,16 @@
             <point key="canvasLocation" x="-1716" y="-135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.png" width="45" height="45"/>
+        <image name="map.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4SB-M7-V5P"/>
+        <segue reference="tU5-ln-9sc"/>
     </inferredMetricsTieBreakers>
 </document>

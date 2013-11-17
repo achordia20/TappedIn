@@ -38,6 +38,12 @@
 		4ED949451837F45A00733A1C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED949441837F45A00733A1C /* MapViewController.m */; };
 		4ED9494918383BE800733A1C /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9494818383BE800733A1C /* VenueViewController.m */; };
 		4ED9494D1838513500733A1C /* BeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9494C1838513500733A1C /* BeerViewController.m */; };
+		4ED9494F1839417000733A1C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED9494E1839417000733A1C /* MapKit.framework */; };
+		4ED949521839439F00733A1C /* VenueAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED949511839439F00733A1C /* VenueAnnotation.m */; };
+		4ED949541839532800733A1C /* map-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED949531839532800733A1C /* map-small.png */; };
+		4ED949581839693500733A1C /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED949571839693500733A1C /* default@2x.png */; };
+		4ED9496018396ED400733A1C /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9495F18396ED400733A1C /* map.png */; };
+		4ED9496A18396FCC00733A1C /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9496918396FCC00733A1C /* list.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +101,13 @@
 		4ED9494818383BE800733A1C /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
 		4ED9494B1838513500733A1C /* BeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerViewController.h; sourceTree = "<group>"; };
 		4ED9494C1838513500733A1C /* BeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerViewController.m; sourceTree = "<group>"; };
+		4ED9494E1839417000733A1C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4ED949501839439F00733A1C /* VenueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueAnnotation.h; sourceTree = "<group>"; };
+		4ED949511839439F00733A1C /* VenueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueAnnotation.m; sourceTree = "<group>"; };
+		4ED949531839532800733A1C /* map-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-small.png"; sourceTree = "<group>"; };
+		4ED949571839693500733A1C /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		4ED9495F18396ED400733A1C /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		4ED9496918396FCC00733A1C /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED9494F1839417000733A1C /* MapKit.framework in Frameworks */,
 				4ED949321837E0D400733A1C /* SystemConfiguration.framework in Frameworks */,
 				4ED949301837E0C700733A1C /* StoreKit.framework in Frameworks */,
 				4ED9492E1837E0C000733A1C /* Security.framework in Frameworks */,
@@ -134,6 +148,9 @@
 		4ED948D51837D9C100733A1C = {
 			isa = PBXGroup;
 			children = (
+				4ED9496918396FCC00733A1C /* list.png */,
+				4ED9495F18396ED400733A1C /* map.png */,
+				4ED949571839693500733A1C /* default@2x.png */,
 				4ED948E71837D9C100733A1C /* TappedIn */,
 				4ED949091837D9C100733A1C /* TappedInTests */,
 				4ED948E01837D9C100733A1C /* Frameworks */,
@@ -153,6 +170,7 @@
 		4ED948E01837D9C100733A1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ED9494E1839417000733A1C /* MapKit.framework */,
 				4ED949311837E0D400733A1C /* SystemConfiguration.framework */,
 				4ED9492F1837E0C700733A1C /* StoreKit.framework */,
 				4ED9492D1837E0C000733A1C /* Security.framework */,
@@ -186,6 +204,7 @@
 				4ED948F11837D9C100733A1C /* TappedInAppDelegate.m */,
 				4ED948F31837D9C100733A1C /* Main.storyboard */,
 				4ED948FC1837D9C100733A1C /* Images.xcassets */,
+				4ED949531839532800733A1C /* map-small.png */,
 				4ED948E81837D9C100733A1C /* Supporting Files */,
 			);
 			path = TappedIn;
@@ -263,6 +282,8 @@
 			children = (
 				4ED949431837F45A00733A1C /* MapViewController.h */,
 				4ED949441837F45A00733A1C /* MapViewController.m */,
+				4ED949501839439F00733A1C /* VenueAnnotation.h */,
+				4ED949511839439F00733A1C /* VenueAnnotation.m */,
 			);
 			name = "Map View";
 			sourceTree = "<group>";
@@ -362,9 +383,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED9496A18396FCC00733A1C /* list.png in Resources */,
+				4ED9496018396ED400733A1C /* map.png in Resources */,
 				4ED948FD1837D9C100733A1C /* Images.xcassets in Resources */,
 				4ED948EC1837D9C100733A1C /* InfoPlist.strings in Resources */,
+				4ED949581839693500733A1C /* default@2x.png in Resources */,
 				4ED948F51837D9C100733A1C /* Main.storyboard in Resources */,
+				4ED949541839532800733A1C /* map-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +418,7 @@
 				4ED9493C1837EA4300733A1C /* InitialViewController.m in Sources */,
 				4ED948F21837D9C100733A1C /* TappedInAppDelegate.m in Sources */,
 				4ED949351837E62500733A1C /* Beers.m in Sources */,
+				4ED949521839439F00733A1C /* VenueAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
