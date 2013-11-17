@@ -78,7 +78,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Beer"];
         
-        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 20)];
+        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, 200, 20)];
+        [name setTextColor:[UIColor brownColor]];
         name.tag = BEER_NAME;
         [cell.contentView addSubview:name];
         
@@ -93,7 +94,13 @@
         tap.tag = BEER_TAP;
         [cell.contentView addSubview:tap];
         
-        UILabel *lastTap = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 200, 20)];
+        UILabel *lTlbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 80, 20)];
+        lTlbl.text = @"Last Tapped: ";
+        [lTlbl setTextColor:[UIColor lightGrayColor]];
+        lTlbl.font = [UIFont systemFontOfSize:12];
+        [cell.contentView addSubview:lTlbl];
+        
+        UILabel *lastTap = [[UILabel alloc] initWithFrame:CGRectMake(90, 20, 100, 20)];
         lastTap.tag = BEER_LAST_TAPPED;
         [lastTap setTextColor:[UIColor lightGrayColor]];
         lastTap.font = [UIFont systemFontOfSize:12];
@@ -108,7 +115,7 @@
     name.text = [[_venue objectForKey:@"beers"] objectAtIndex:indexPath.row];
     
     UILabel *lastTap = (UILabel *)[cell viewWithTag:BEER_LAST_TAPPED];
-    lastTap.text = @"Last Tapped: 11/16";
+    lastTap.text = @"11/16";
     
     cell.tag = indexPath.row;
     
@@ -120,12 +127,16 @@
     UIButton *btn = (UIButton *)sender;
     [btn setTitle:@"Tapped" forState:UIControlStateNormal];
     [btn setTitle:@"Tapped" forState:UIControlStateHighlighted];
-    [btn setTitle:@"Tapped" forState:UIControlStateDisabled];
+    
+    [btn setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor brownColor] forState:UIControlStateHighlighted];
+
     UITableViewCell *cell = (UITableViewCell *)[[[sender superview] superview] superview];
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
     UILabel *lastTap = (UILabel *)[cell viewWithTag:BEER_LAST_TAPPED];
-    lastTap.text = [NSString stringWithFormat:@"Last Tapped: %d/%d", [components month], [components day]];
+    [lastTap setTextColor:[UIColor redColor]];
+    lastTap.text = [NSString stringWithFormat:@"%d/%d", [components month], [components day]];
 }
 
 @end

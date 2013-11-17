@@ -30,6 +30,18 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    NSLog(@"FS:LDKFJS:DFJSD:LFJSD:FJSD");
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -120,7 +120,7 @@
     [cell.contentView addSubview:topBar];
     
     UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 240, 20)];
-    [name setTextColor:[UIColor orangeColor]];
+    [name setTextColor:[UIColor brownColor]];
     name.tag = VENUE_NAME;
     [cell.contentView addSubview:name];
     

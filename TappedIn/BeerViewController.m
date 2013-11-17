@@ -41,6 +41,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.title = @"Beers";
 }
 
@@ -53,6 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        self.navigationController.navigationBar.hidden = NO;
 	// Do any additional setup after loading the view.
     [self setupLocationServices];
     [self setupSearchBar];
@@ -121,12 +123,14 @@
     tableBeers = res;
     NSLog(@"RESULT: %@", res);
     [_tableView reloadData];
+    [searchBar resignFirstResponder];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar                    // called when cancel button pressed
 {
     tableBeers = beers;
     [_tableView reloadData];
+    [searchBar resignFirstResponder];
 }
 
 
@@ -244,7 +248,7 @@
     [cell.contentView addSubview:topBar];
     
     UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(40, 20, 240, 20)];
-    [name setTextColor:[UIColor orangeColor]];
+    [name setTextColor:[UIColor brownColor]];
     [name setTextAlignment:NSTextAlignmentCenter];
     name.tag = BEER_NAME;
     [cell.contentView addSubview:name];

@@ -41,6 +41,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.title =  @"Bars";
 }
 
@@ -52,6 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        self.navigationController.navigationBar.hidden = NO;
     [self setupLocationServices];
     [self setupSearchBar];
     [self setupChildViewControllers];
@@ -151,7 +153,7 @@
     listViewController.bars = [res mutableCopy];
     mapViewController.bars = [res mutableCopy];
     [self reloadChildData];
-
+    [searchBar resignFirstResponder];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar                    // called when cancel button pressed
@@ -159,6 +161,7 @@
     listViewController.bars = bars;
     mapViewController.bars = bars;
     [self reloadChildData];
+    [searchBar resignFirstResponder];
 }
 
 #pragma mark - CLLocationManagerDelegate
