@@ -88,7 +88,6 @@
 
 -(void)loadBeers
 {
-    NSLog(@"Loading Beers");
     PFQuery *query = [PFQuery queryWithClassName:@"Beers"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -120,12 +119,14 @@
     NSLog(@"pred: %@", predicate.debugDescription);
     NSArray *res = [beers filteredArrayUsingPredicate:predicate];
     tableBeers = res;
+    NSLog(@"RESULT: %@", res);
     [_tableView reloadData];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar                    // called when cancel button pressed
 {
-    
+    tableBeers = beers;
+    [_tableView reloadData];
 }
 
 
@@ -154,7 +155,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *beerBars = [[beers objectAtIndex:indexPath.row] objectForKey:@"bars"];
+    NSArray *beerBars = [[tableBeers objectAtIndex:indexPath.row] objectForKey:@"bars"];
     
     NSMutableArray *listOfBars = [[NSMutableArray alloc] init];
     for (NSString *b in beerBars) {
@@ -183,7 +184,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject *obj;
     
-    obj = [beers objectAtIndex:indexPath.row];
+    obj = [tableBeers objectAtIndex:indexPath.row];
     
     UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:@"Beers"];
     
@@ -202,13 +203,11 @@
 
 -(NSString *)getNearestBarFromList: (NSArray *)barsForBeers
 {
-    NSLog(@"COUNT OF BARS: %d", [barsForBeers count]);
     if ([barsForBeers count] == 0)
         return @"NA";
     
     NSMutableArray *list = [[NSMutableArray alloc] init];
     for (NSString *b in barsForBeers) {
-        NSLog(@"SIZE OF BARS: %d",[bars count]);
         for (PFObject *ba in bars) {
             if ([b isEqualToString:ba[@"name"]])
                 [list addObject:ba];
@@ -222,8 +221,6 @@
 {
     userLocation = [[CLLocation alloc] initWithLatitude:41.888305 longitude:-87.633891];
     CLLocationDistance min = DBL_MAX;
-    if ([list count] <= 0)
-        NSLog(@"FFDFS");
     
     for (PFObject *o in list) {
         NSNumber *lat = o[@"latitude"];
@@ -232,22 +229,31 @@
         CLLocationDistance dist = [userLocation distanceFromLocation:venLoc];
         dist = [self convertToMilesFromMeters:dist];
         min = MIN(min, dist);
-        NSLog(@"min: %f", min);
     }
     
-    return [NSString stringWithFormat:@"%.2f mi", min];
+    return [NSString stringWithFormat:@"Closest Venue: %.2f mi", min];
 }
 
 -(UITableViewCell *)setupBeerCell
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Beers"];
-    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 240, 20)];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    UILabel *topBar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    [topBar setBackgroundColor:[UIColor lightGrayColor]];
+    [cell.contentView addSubview:topBar];
+    
+    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(40, 20, 240, 20)];
+    [name setTextColor:[UIColor orangeColor]];
+    [name setTextAlignment:NSTextAlignmentCenter];
     name.tag = BEER_NAME;
     [cell.contentView addSubview:name];
     
-    UILabel *distance = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 120, 20)];
+    UILabel *distance = [[UILabel alloc] initWithFrame:CGRectMake(60, 40, 200, 20)];
     distance.tag = BEER_DISTANCE;
     [distance setFont:[UIFont systemFontOfSize:12]];
+    [distance setTextColor:[UIColor lightGrayColor]];
+    [distance setTextAlignment:NSTextAlignmentCenter];
     [cell.contentView addSubview:distance];
     
     return cell;

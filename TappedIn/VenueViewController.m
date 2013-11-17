@@ -88,8 +88,8 @@
         [tap setTitle:@"Tap" forState:UIControlStateNormal];
         [tap setTitle:@"Tap" forState:UIControlStateHighlighted];
         [tap addTarget:self action:@selector(tapDat:) forControlEvents:UIControlEventTouchUpInside];
-        [tap setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [tap setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [tap setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [tap setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
         tap.tag = BEER_TAP;
         [cell.contentView addSubview:tap];
         

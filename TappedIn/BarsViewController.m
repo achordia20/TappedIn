@@ -88,8 +88,10 @@
 {
     [self loadBeers];
     if (bars) {
+        NSLog(@"BARSSS: %@", bars);
         listViewController.bars = bars;
         mapViewController.bars = bars;
+        [listViewController.tableView reloadData];
     } else
         [self loadBars];
 }
@@ -103,7 +105,6 @@
             beers = [objects mutableCopy];
             listViewController.beers = beers;
             mapViewController.beers = beers;
-            [self reloadChildData];
         } else
             NSLog(@"ERROR: %@", error.description);
     }];
@@ -111,6 +112,7 @@
 
 -(void)loadBars
 {
+    NSLog(@"FDS:FJSD:LFJS LBAR");
     PFQuery *query = [PFQuery queryWithClassName:@"Bars"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {

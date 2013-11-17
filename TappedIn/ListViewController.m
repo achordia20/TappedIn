@@ -113,6 +113,7 @@
 -(UITableViewCell *)setupBarCell
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_type];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UILabel *topBar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
     [topBar setBackgroundColor:[UIColor lightGrayColor]];
