@@ -7,7 +7,7 @@
 //
 
 #import "InitialViewController.h"
-#import "MainViewController.h"
+#import "BarsViewController.h"
 
 @interface InitialViewController ()
 {
@@ -43,11 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    MainViewController *mVC = (MainViewController *)segue.destinationViewController;
-    mVC.type = type;
-}
 
 - (IBAction)gotToBars:(id)sender {
     type = @"Bars";

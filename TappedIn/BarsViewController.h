@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface MainViewController : UIViewController
+@interface BarsViewController : UIViewController
 
 
 @property (strong, nonatomic) IBOutlet UIView *tabBarController;

@@ -6,12 +6,13 @@
 //  Copyright (c) 2013 Abhinav Chordia. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "BarsViewController.h"
 #import "MapViewController.h"
 #import "ListViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "VenueViewController.h"
 
-@interface MainViewController ()<UISearchBarDelegate, CLLocationManagerDelegate>
+@interface BarsViewController ()<UISearchBarDelegate, CLLocationManagerDelegate>
 {
     NSMutableArray *beers;
     NSMutableArray *bars;
@@ -26,7 +27,7 @@
 
 @end
 
-@implementation MainViewController
+@implementation BarsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +40,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.title =  self.type;
+    [super viewWillAppear:animated];
+    self.title =  @"Bars";
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -84,11 +86,8 @@
 
 -(void)loadData
 {
-    if ([_type isEqualToString:@"Beers"]) {
-        [self loadBeers];
-    } else if ([_type isEqualToString:@"Bars"]) {
-        [self loadBars];
-    }
+    [self loadBeers];
+    [self loadBars];
 }
 
 -(void)loadBeers
@@ -141,30 +140,19 @@
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchBar.text];
     NSLog(@"pred: %@", predicate.debugDescription);
-    if ([_type isEqualToString:@"Beers"]) {
-        NSArray *res = [beers filteredArrayUsingPredicate:predicate];
-        listViewController.beers = [res mutableCopy];
-        mapViewController.beers = [res mutableCopy];;
-        [self reloadChildData];
-    } else if ([_type isEqualToString:@"Bars"]) {
-        NSArray *res = [bars filteredArrayUsingPredicate:predicate];
-        listViewController.bars = [res mutableCopy];
-        mapViewController.bars = [res mutableCopy];
-        [self reloadChildData];
-    }
+
+    NSArray *res = [bars filteredArrayUsingPredicate:predicate];
+    listViewController.bars = [res mutableCopy];
+    mapViewController.bars = [res mutableCopy];
+    [self reloadChildData];
+
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar                    // called when cancel button pressed
 {
-    if ([_type isEqualToString:@"Beers"]) {
-        listViewController.beers = beers;
-        mapViewController.beers = beers;
-        [self reloadChildData];
-    } else if ([_type isEqualToString:@"Bars"]) {
-        listViewController.bars = bars;
-        mapViewController.bars = bars;
-        [self reloadChildData];
-    }
+    listViewController.bars = bars;
+    mapViewController.bars = bars;
+    [self reloadChildData];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -176,6 +164,15 @@
     userLocation = newLocation;
     listViewController.userLocation = userLocation;
     mapViewController.userLocation = userLocation;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"goToVenue"]) {
+        VenueViewController *vC = (VenueViewController *)segue.destinationViewController;
+        vC.venue = sender;
+    }
+    
 }
 
 

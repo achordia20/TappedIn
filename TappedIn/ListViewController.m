@@ -10,12 +10,15 @@
 #define VENUE_TYPE 102
 #define VENUE_DISTANCE 103
 #define VENUE_BEERS_ON_TAP 104
+#define BEER_DISTANCE 105
 
 
 #import "ListViewController.h"
 #import <Parse/Parse.h>
+#import <float.h>
 
 @interface ListViewController ()<UITableViewDataSource, UITableViewDelegate>
+
 
 @end
 
@@ -55,60 +58,48 @@
     return 60;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[[self parentViewController] parentViewController] performSegueWithIdentifier:@"goToVenue" sender:[_bars objectAtIndex:indexPath.row]];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"Type: %@, COUNT: %u", _type, [_beers count]);
-    if ([_type isEqualToString:@"Beers"])
-        return [_beers count];
-    else if ([_type isEqualToString:@"Bars"])
-        return [_bars count];
-    return 0;
+    return [_bars count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject *obj;
     
-    if ([_type isEqualToString:@"Beers"]) {
-        obj = [_beers objectAtIndex:indexPath.row];
-    } else {
-        obj = [_bars objectAtIndex:indexPath.row];
-    }
+    obj = [_bars objectAtIndex:indexPath.row];
     
-    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:_type];
+    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:@"Bars"];
     
     if (!cell) {
-        NSLog(@"Cell Does Not Exist");
-        if ([_type isEqualToString:@"Beers"]) {
-            cell = [self setupBeerCell];
-        } else {
-            cell = [self setupBarCell];
-        }
+        cell = [self setupBarCell];
     }
     
-    if ([_type isEqualToString:@"Beers"]) {
-        UILabel *name = (UILabel *)[cell viewWithTag:BEER_NAME];
-        name.text = obj[@"name"];
-    } else {
-        UILabel *name = (UILabel *)[cell viewWithTag:VENUE_NAME];
-        name.text = obj[@"name"];
-        
-        UILabel *type = (UILabel*)[cell viewWithTag:VENUE_TYPE];
-        type.text = obj[@"type"];
-        
-        UILabel *distance = (UILabel *)[cell viewWithTag:VENUE_DISTANCE];
-        NSNumber *lat = obj[@"latitude"];
-        NSNumber *lon = obj[@"longitude"];
-        CLLocation *venLoc = [[CLLocation alloc] initWithLatitude:[lat doubleValue] longitude:[lon doubleValue]];
-        CLLocationDistance dist = [_userLocation distanceFromLocation:venLoc];
-        dist = [self convertToMilesFromMeters:dist];
-        distance.text = [NSString stringWithFormat:@"%.2f mi", dist];
-        NSLog(@"setting dist: %f", dist);
-        
-        UILabel *onTap = (UILabel *)[cell viewWithTag:VENUE_BEERS_ON_TAP];
-        onTap.text = [NSString stringWithFormat:@"%@", obj[@"onTap"]];
-    }
+
+    UILabel *name = (UILabel *)[cell viewWithTag:VENUE_NAME];
+    name.text = obj[@"name"];
+    
+    UILabel *type = (UILabel*)[cell viewWithTag:VENUE_TYPE];
+    type.text = obj[@"type"];
+    
+    UILabel *distance = (UILabel *)[cell viewWithTag:VENUE_DISTANCE];
+    NSNumber *lat = obj[@"latitude"];
+    NSNumber *lon = obj[@"longitude"];
+    CLLocation *venLoc = [[CLLocation alloc] initWithLatitude:[lat doubleValue] longitude:[lon doubleValue]];
+    CLLocationDistance dist = [_userLocation distanceFromLocation:venLoc];
+    dist = [self convertToMilesFromMeters:dist];
+    distance.text = [NSString stringWithFormat:@"%.2f mi", dist];
+    NSLog(@"setting dist: %f", dist);
+    
+    UILabel *onTap = (UILabel *)[cell viewWithTag:VENUE_BEERS_ON_TAP];
+    onTap.text = [NSString stringWithFormat:@"%d", [obj[@"beers"] count]];
+    
     return  cell;
 }
 
@@ -135,16 +126,6 @@
     
     return cell;
 
-}
-
--(UITableViewCell *)setupBeerCell
-{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_type];
-    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 280, 20)];
-    name.tag = BEER_NAME;
-    
-    [cell.contentView addSubview:name];
-    return cell;
 }
 
 - (double)convertToMilesFromMeters: (double)distance
