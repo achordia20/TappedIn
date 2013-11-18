@@ -243,7 +243,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Beers"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    UILabel *topBar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    UILabel *topBar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     [topBar setBackgroundColor:[UIColor lightGrayColor]];
     [cell.contentView addSubview:topBar];
     
