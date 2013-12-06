@@ -34,7 +34,7 @@
 {
     self.navigationController.navigationBar.hidden = YES;
     [self setNeedsStatusBarAppearanceUpdate];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
