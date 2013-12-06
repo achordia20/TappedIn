@@ -268,9 +268,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMb-gD-p2M">
-                                        <rect key="frame" x="36" y="36" width="248" height="79"/>
+                                        <rect key="frame" x="36" y="59" width="248" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hJ-sC-KlN">
+                                        <rect key="frame" x="31" y="0.0" width="258" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -294,6 +301,7 @@
                     <navigationItem key="navigationItem" id="B5B-8u-nVu"/>
                     <connections>
                         <outlet property="addressLbl" destination="DMb-gD-p2M" id="dZN-b1-uky"/>
+                        <outlet property="nameLbl" destination="9hJ-sC-KlN" id="Ucr-nL-juc"/>
                         <outlet property="tableView" destination="Vei-QF-tjj" id="NaX-UM-xWz"/>
                     </connections>
                 </viewController>

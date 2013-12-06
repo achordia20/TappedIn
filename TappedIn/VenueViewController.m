@@ -29,6 +29,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = [_venue objectForKey:@"name"];
+    self.nameLbl.text = [_venue objectForKey:@"name"];
     [self setAddress];
     [_tableView setUserInteractionEnabled:YES];
     
@@ -38,7 +39,7 @@
 
 -(void)setAddress
 {
-    _addressLbl.text = [_venue objectForKey:@"address"];
+    _addressLbl.text = [NSString stringWithFormat:@"%@, Chicago, IL",[_venue objectForKey:@"address"]];
 }
 
 -(void)setupTableView

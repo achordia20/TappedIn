@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) PFObject *venue;
 @property (strong, nonatomic) IBOutlet UILabel *addressLbl;
+@property (strong, nonatomic) IBOutlet UILabel *nameLbl;
 
 @end
